@@ -1,0 +1,40 @@
+<script>
+  //1번 ~ 45번까지의 숫자를 담을 변수
+  let ball = [];
+  //ball에 담긴 값들 중 무작위로 뽑은 6개의 값을 저장할 변수
+  let lotto = [];    
+
+  //ball 배열변수에 1부터 45까지 숫자를 저장
+  for(let i = 0; i < 45; i++){
+    ball[i] = i + 1;
+  }
+  console.log(ball);
+  
+  //lotto배열 변수에 ball배열변수에서 랜덤으로 뽑은 6개의 값을 저장
+  for(let k = 0; k < 6; k++){
+    //ball 배열 변수의 인덱스 번호를 무작위로 뽑기
+    //Math.random 사용
+    let random = Math.floor((Math.random()*ball.length));
+
+    //lotto배열에 ball배열의 값을 저장
+    lotto[k] = ball[random];    
+
+    //lotto배열에 중복된 값이 저장되는 것을 막기위해 조건문 사용
+    //lotto[k]에 담긴 값이 ball[random]값과 같다면
+    //ball배열에서 그 값을 삭제
+    if(lotto[k]===ball[random]){
+      
+      //lotto배열에 담긴 값은 ball배열에서 삭제
+      ball.splice(random,1);               
+    }
+         
+    document.write(`<span class="ball">${lotto[k]}</span>`);      
+  }
+
+  // console.log(ball);
+
+
+  //console.log(lotto);
+
+  
+</script>
